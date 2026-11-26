@@ -23,7 +23,7 @@ RUN CGO_ENABLED=0 GOOS=$TARGETOS GOARCH=$TARGETARCH \
     go build -trimpath -ldflags="-s -w" -o /out/danfse-service ./cmd/danfse \
  && cp LICENSE /out/LICENSE.upstream
 
-FROM alpine:3.22
+FROM alpine:3.24
 ARG UPSTREAM_REF
 LABEL org.opencontainers.image.title="danfse-service" \
       org.opencontainers.image.description="DANFSe Service (Receita Federal) empacotado pela NFE.io" \
