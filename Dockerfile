@@ -32,7 +32,7 @@ LABEL org.opencontainers.image.title="danfse-service" \
       org.opencontainers.image.source="https://github.com/nfe/gerador-danfse-docker" \
       io.nfe.upstream.repo="https://github.com/ReceitaFederal/calculadora-rtc-gerador-danfse" \
       io.nfe.upstream.ref="${UPSTREAM_REF}"
-RUN apk add --no-cache ca-certificates tzdata
+RUN apk upgrade --no-cache && apk add --no-cache ca-certificates tzdata
 COPY --from=build /out/ /app/
 ENV TZ=America/Sao_Paulo \
     SERVER_PORT=8080
