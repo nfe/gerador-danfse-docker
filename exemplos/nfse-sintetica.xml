@@ -1,0 +1,32 @@
+<NFSe versao="1.00">
+		<infNFSe Id="NFS123" dhProc="2026-07-14T10:00:00-03:00">
+			<nNFSe>1</nNFSe>
+			<ambGer>1</ambGer>
+			<cStat>100</cStat>
+			<DPS>
+				<infDPS>
+					<nDPS>1</nDPS>
+					<serie>1</serie>
+					<dhEmi>2026-07-14T10:00:00-03:00</dhEmi>
+					<dCompet>2026-07-14</dCompet>
+					<tpEmit>1</tpEmit>
+					<tpAmb>1</tpAmb>
+					<prest><regTrib><opSimpNac>1</opSimpNac></regTrib></prest>
+					<serv>
+						<cServ><cTribNac>010101</cTribNac><xDescServ>Servico de Teste Completo</xDescServ></cServ>
+						<infoCompl><xInfComp>Informacao complementar importante</xInfComp></infoCompl>
+					</serv>
+					<valores>
+						<vServPrest><vServ>100</vServ></vServPrest>
+						<trib><tribMun><tribISSQN>1</tribISSQN></tribMun></trib>
+					</valores>
+				</infDPS>
+			</DPS>
+			<emit>
+				<CNPJ>12345678000195</CNPJ>
+				<xNome>Prestador</xNome>
+				<enderNac><cMun>3550308</cMun><CEP>01001000</CEP></enderNac>
+			</emit>
+			<valores><vLiq>100</vLiq></valores>
+		</infNFSe>
+</NFSe>

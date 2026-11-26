@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: danfse
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /health/ready
+    envVars:
+      - key: LOG_LEVEL
+        value: info

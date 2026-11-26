@@ -1,0 +1,17 @@
+// Deploy to Cloudflare: Worker na borda + Container com a imagem deste Dockerfile.
+// Exige plano Workers Paid (Containers não existe no Free).
+{
+  "name": "danfse",
+  "main": "worker.js",
+  "compatibility_date": "2026-11-25",
+  "observability": { "enabled": true },
+  "containers": [
+    {
+      "class_name": "Danfse",
+      "scheduling_policy": "durable_object",
+      "images": { "base": { "dockerfile": "./Dockerfile" } }
+    }
+  ],
+  "durable_objects": { "bindings": [{ "name": "DANFSE", "class_name": "Danfse" }] },
+  "exports": { "Danfse": { "type": "durable-object", "storage": "sqlite" } }
+}

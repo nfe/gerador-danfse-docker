@@ -1,0 +1,5 @@
+{
+  "name": "danfse",
+  "options": { "allow-unauthenticated": true, "memory": "256Mi", "cpu": "1", "port": 8080 },
+  "env": { "LOG_LEVEL": { "value": "info", "required": false } }
+}

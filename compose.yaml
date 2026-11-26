@@ -1,0 +1,13 @@
+services:
+  danfse:
+    build: .
+    image: ghcr.io/nfe/gerador-danfse-docker:local
+    ports:
+      - "${HOST_PORT:-8080}:8080"
+    environment:
+      LOG_LEVEL: ${LOG_LEVEL:-info}
+      XML_MAX_SIZE_BYTES: ${XML_MAX_SIZE_BYTES:-5242880}
+    read_only: true
+    cap_drop: [ALL]
+    security_opt: ["no-new-privileges:true"]
+    restart: unless-stopped
