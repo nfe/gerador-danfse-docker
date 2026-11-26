@@ -14,10 +14,11 @@ RUN git init -q . \
  && git fetch -q --depth 1 "$UPSTREAM_REPO" "$UPSTREAM_REF" \
  && git checkout -q FETCH_HEAD
 # Correções de segurança ainda não aplicadas no upstream (Trivy, 25/11/2026). Remover quando o upstream atualizar.
+# BuildKit injeta OTEL_EXPORTER_OTLP_TRACES_* nos RUN; os testes de telemetria precisam do ambiente limpo.
 RUN go get github.com/labstack/echo/v5@v5.4.1 golang.org/x/net@v0.62.0 golang.org/x/image@v0.45.0 \
       google.golang.org/grpc@v1.83.2 \
  && go mod tidy \
- && go test -count=1 ./...
+ && env $(env | grep -o "^OTEL_[A-Z_]*" | sed "s/^/-u /") go test -count=1 ./...
 # shortcut: usa o api/swagger já versionado no upstream (não roda swag init); regerar se o upstream deixar de versioná-lo.
 RUN CGO_ENABLED=0 GOOS=$TARGETOS GOARCH=$TARGETARCH \
     go build -trimpath -ldflags="-s -w" -o /out/danfse-service ./cmd/danfse \
